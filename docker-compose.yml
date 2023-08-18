@@ -8,13 +8,13 @@ services:
     depends_on:
       - mongodb   # Indicamos que depende del servicio 'mongodb'
     healthcheck:
-      test: "curl -f http://localhost:3000/ || exit 1"
+      test: "curl -f http://127.0.0.1:3000/ || exit 1"
       interval: 10s
       timeout: 5s
       start_period: 60s
     environment:
-      MONGO_URL: mongodb://mongodb:27017/empresa
-      OAUTH_AUDIENCE: http://localhost:3000/api/productos
+      MONGO_URL: mongodb:27017/empresa
+      OAUTH_AUDIENCE: http://127.0.0.1:3000/api/productos
       OAUTH_URL: https://dev-utn-frc-iaew.auth0.com/
   # Servicio de MongoDB
   mongodb:

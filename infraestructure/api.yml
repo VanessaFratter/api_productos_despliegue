@@ -30,7 +30,7 @@ Resources:
               Condition: HEALTHY
           Essential: true
           HealthCheck:
-            Command: ["CMD-SHELL", "curl -f http://localhost:3000/ || exit 1"]
+            Command: ["CMD-SHELL", "curl -f http://127.0.0.1:3000/ || exit 1"]
             Interval: 30 # Intervalo entre comprobaciones de salud en segundos
             Timeout: 5 # Tiempo máximo en segundos permitido para una comprobación de salud
             Retries: 3 # Número de veces que se realizará la comprobación antes de declarar el contenedor como no saludable
@@ -39,7 +39,7 @@ Resources:
             - Name: MONGO_URL
               Value: "mongodb://127.0.0.1:27017/empresa" # Configura la URL de conexión para tu base de datos
             - Name: OAUTH_AUDIENCE
-              Value: "http://localhost:3000/api/productos" # Configura la URL de conexión para tu base de datos
+              Value: "http://127.0.0.1:3000/api/productos" # Configura la URL de conexión para tu base de datos
             - Name: OAUTH_URL
               Value: "https://dev-utn-frc-iaew.auth0.com/" # Configura la URL de conexión para tu base de datos
         - Name: mongodb
